@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My cart</title>
+    <link rel="stylesheet" href="cart.css" />
+    <link rel="shortcut icon" href="./images/Cloud2.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <style>
+      #list > * {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+      img {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img
+              src="./images/Cloud2.png"
+              alt=""
+              width="50"
+              height="40"
+              class="d-inline-block align-text-top"
+            />
+            Cloud.com
+          </a>
+          <nav class="navbar bg-light">
+            <div class="container-fluid">
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-success" type="submit">
+                  Search
+                </button>
+              </form>
+            </div>
+          </nav>
+          <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link" href="./Ordernow.html"
+                ><img
+                  class="icon"
+                  src="./images/icons8-create-order-30.png"
+                  alt=""
+                />Orders</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html"
+                ><img
+                  class="icon"
+                  src="./images/icons8-shopping-cart-24.png"
+                  alt=""
+                />Cart</a
+              >
+            </li>
+
+           
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <h1>My shopping cart:</h1>
+
+    <ul id="list"></ul>
+
+    <button class="checkout">Checkout</button>
+    <div id="total-price">
+      <p>Total Price: </p>
+      <p id ="finalPrice" >0</p>
+  </div>
+   
+    <center>
+      <div class="row-counter">   
+        <div class="column">   
+            <div class="block">  
+                <!-- Add user icon to the counter -->  
+            <h1>Let's solve deforestation issue!</h1>
+            <p><img src="./images/icons8-tree-64.png" alt=""></p>   
+            <h3 class="counter">0 </h3>  
+            <p> trees </p>   
+        </div>   
+    </center>
+    <script>
+      var totalPrice = document.getElementsByClassName("price");
+      var finalPrice = document.getElementById('finalPrice')
+      function displayItems() {
+        var totalValue=0;
+        var cardList = JSON.parse(localStorage.getItem("product"));
+        if (cardList) {
+          for (let i = 0; i < cardList.length; i++) {
+            totalValue=totalValue+parseInt(cardList[i].price)
+            const button = document.createElement("button");
+            const item = document.createElement("div");
+            const img = document.createElement("img");
+            const heading = document.createElement("h1");
+            const p = document.createElement("p");
+            
+
+            img.setAttribute("src", cardList[i].img);
+            console.log(img);
+            const name = document.createTextNode(cardList[i].name);
+            const price = document.createTextNode(cardList[i].price);
+            const buttonContent = document.createTextNode("delete");
+            button.addEventListener("click", function (e) {
+              let newCardList = cardList.filter(
+                (el) =>
+                  el.name != e.target.parentNode.querySelector("h1").innerText
+              );
+              console.log(newCardList);
+              localStorage.setItem("product", JSON.stringify(newCardList));
+
+              e.target.parentNode.remove();
+            });
+            heading.appendChild(name);
+            item.appendChild(img);
+            button.appendChild(buttonContent);
+
+            item.appendChild(heading);
+            item.appendChild(price);
+            item.appendChild(button);
+
+            document.getElementById("list").appendChild(item);
+          }
+          finalPrice.innerText=totalValue
+        }
+      }
+      
+      displayItems();
+    </script>
+    <script src="./cloud.js"></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+header {
+  width: 100%;
+}
+header nav img {
+  height: 45px;
+  width: 45px;
+}
+button {
+  background-color: rgb(83, 173, 173);
+}
+.checkout {
+  position: absolute;
+  right: 100px;
+}
+.icon {
+  width: 23px;
+  height: 23px;
+  margin-right: 5px;
+}
+main {
+  margin-top: 200px;
+}
+.icon {
+  width: 23px;
+  height: 23px;
+  margin-right: 5px;
+}
+.row-counter {
+  margin-top: 60px;
+  background-image: url(https://wallpaper.dog/large/713218.jpg);
+}
+#total-price {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  font-size: large;
+  font-weight: bold;
+  margin-top: 80px;
+  margin-right: 50px;
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Order now!</title>
+    <link rel="shortcut icon" href="./images/Cloud2.png" type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./Ordernow.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="./images/Cloud2.png" alt="" width="50" height="40" class="d-inline-block align-text-top" />
+                    Cloud.com
+                </a>
+                <nav class="navbar bg-light">
+                    <div class="container-fluid">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                            <button class="btn btn-outline-success" type="submit">
+                                Search
+                            </button>
+                        </form>
+                    </div>
+                </nav>
+                <ul class="nav justify-content-end">
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="cloud.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="cart.html"><img src="./images/icons8-shopping-cart-24.png" alt="" />Cart</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container" id="cont">
+
+            <div class="card">
+                <img src="./images/1pack Random Color Index Sticker.jfif">
+                <h3>Sticky notes</h3>
+                <h4>12.00Dt</h4>
+                <button>Add to cart</button>
+            </div>
+            <div class="card">
+                <img src="./images/Bright and happy die-cut stickers.jfif">
+                <h3>Summer Stickers</h3>
+                <h4>10.00Dt</h4>
+                <button>Add to cart</button>
+
+            </div>
+            <div class="card">
+                <img src="./images/Grid Washi Tape _ The Washi Tape Shop.jfif">
+                <h3>Washi tape</h3>
+                <h4>9.00Dt</h4>
+                <button>Add to cart</button>
+            </div>
+            <div class="card">
+                <img src="images/Highlighter.jfif">
+                <h3>Highlighters</h3>
+                <h4>20.00Dt</h4>
+                <button>Add to cart</button>
+            </div>
+            <div class="card">
+                <img src="./images/Campus Notebooks!.jfif">
+                <h3>notebooks</h3>
+                <h4>25.00Dt</h4>
+                <button>Add to cart</button>
+            </div>
+            <div class="card">
+                <img src="./images/Star Print Notebook 144sheets.jfif">
+                <h3>Planner</h3>
+                <h4>30.00Dt</h4>
+                <button>Add to cart</button>
+            </div>
+            <div class="card">
+                <img src="./images/MOM.jfif">
+                <h3>Scrunchies</h3>
+                <h4>5.00Dt</h4>
+                <button>Add to cart</button>
+            </div>
+            <div class="card">
+                <img src="./images/Cream Floral Hair Scarf.jfif">
+                <h3>Hair ribbons</h3>
+                <h4>5.00Dt</h4>
+                <button>Add to cart</button>
+            </div>
+            <div class="card">
+                <img
+                    src="./images/Pin by adfg_ on sticker by picsart in 2022 _ Scrapbook stickers printable, Bullet journal stickers, Journal stickers.jfif">
+                <h3>Journal stickers</h3>
+                <h4>13.00Dt</h4>
+                <button>Add to cart</button>
+            </div>
+
+
+        </div>
+
+    </main>
+    <footer>
+        <ul class="nav justify-content-footer">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                    About us </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Stationeries</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Stickers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Accessories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Feedback</a>
+            </li>
+            <li class="nav-text">
+                <a class="nav-link disabled">Soft as Cloud-2022</a>
+            </li>
+    </footer>
+
+    <script>
+
+
+
+        const product = {
+        }
+
+        
+
+        var carts = document.querySelectorAll(".card")
+        var s=0;
+        for (let i = 0; i < carts.length; i++) {
+            carts[i].querySelector("button").addEventListener("click", function (e) {
+                product.name = e.target.parentNode.querySelector("h3").innerText
+                product.price = e.target.parentNode.querySelector("h4").innerText
+                product.img = e.target.parentNode.querySelector("img").src
+                s=s+parseInt(product.price)
+                console.log(s)
+                addToCart(product)
+                alert("you've just added an element to your cart")
+                e.preventDefault()
+            })
+        }
+
+       
+
+
+        const productList = []
+
+        // carts[2].querySelector("button").addEventListener("click", function () {
+        //     addToCart(product)
+        // })
+        function addToCart(product) {
+            
+            productList.push( {...product})
+             console.log(productList)
+            localStorage.setItem("product", JSON.stringify(productList))
+            
+        }
+    </script>
+</body>
+
+</html>

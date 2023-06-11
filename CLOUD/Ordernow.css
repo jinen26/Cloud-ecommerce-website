@@ -1,0 +1,47 @@
+header {
+  position: relative;
+  z-index: 9999;
+  box-shadow: 0 -2px 10px 0 rgb(0 0 0 / 15%);
+  width: 100%;
+}
+main {
+  background-image: url("./images/CLOUD5.png");
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card img {
+  width: 300px;
+  height: 300px;
+}
+.card {
+  width: 300px;
+  border: 2px solid rgb(36, 1, 65);
+  margin: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+footer {
+  background-color: rgb(206, 158, 206);
+}
+.card button {
+  background-color: rgb(199, 139, 181);
+  border: none;
+}
+.card h4 {
+  margin-left: 10px;
+  font-size: 1em;
+  color: rgb(92, 40, 76);
+}
+.card h3 {
+  margin-left: 10px;
+  font-size: 1.2em;
+}
+.icon {
+  width: 23px;
+  height: 23px;
+  margin-right: 5px;
+}
